@@ -31,25 +31,16 @@
  */
 
 package fxmlexample;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-public class FXMLExample extends Application {
+ 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
+ 
+public class FXMLExampleController {
+    @FXML private Text actiontarget;
     
-    public static void main(String[] args) {
-        Application.launch(FXMLExample.class, args);
+    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
+        actiontarget.setText("Sign in button pressed");
     }
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml_example.fxml"));
-        
-        stage.setTitle("FXML Welcome");
-        stage.setScene(new Scene(root, 300, 275));
-        stage.show();
-    }
+
 }
